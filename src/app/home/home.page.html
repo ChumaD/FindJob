@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar align="center" color="primary">
+    <ion-title>
+      Find a job
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="h1">
+  <ion-input [(ngModel)]="jobname" placeholder="job title"><ion-icon name="search"></ion-icon></ion-input>
+  <div align="right"><ion-button (click)="getJob()"><ion-icon name="search"></ion-icon></ion-button></div>
+</ion-item>
+<h2>Job list</h2>
+  <ion-card *ngFor="let jobb of job" class="ion-padding" >
+    <ion-card-header>
+      <div class="nav">
+          <img [src]="jobb.name.company_logo"/>
+      </div>
+
+    <ion-card-subtitle> <b><h2>{{jobb.name.company}}</h2></b></ion-card-subtitle>
+    <ion-card-title><u>{{jobb.name.title}}</u><br>
+      <h4><ion-icon name="pin"></ion-icon>  {{jobb.name.location}}</h4>
+    </ion-card-title>
+</ion-card-header>
+<ion-card-content>
+   <h3><ion-icon name="calendar"></ion-icon>  {{jobb.name.created_at}}</h3>    
+</ion-card-content>
+
+   <a [routerLink]="['/job-infor', jobb.name.id]" >View job</a>
+  </ion-card>
+</ion-content>

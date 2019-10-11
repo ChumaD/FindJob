@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Job description</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="">
+    <ion-icon name="arrow-back" [routerLink]="['/home']"></ion-icon>
+    <ion-card *ngIf="jobbb">
+       <ion-card-title class="h2">
+          <h2><b>{{ jobbb.company }}</b></h2>
+          </ion-card-title>
+     <div align="center;width: 40%;height: 300px;">
+        <img [src]="jobbb.company_logo" />
+      </div>
+      <ion-card-header>
+        <ion-card-subtitle></ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-subtitle>
+        <h4>
+          <p>Job Title: {{ jobbb.title }}</p>
+          <p> Job Type:  {{ jobbb.type }}</p>
+          <p><ion-icon name="calendar"></ion-icon> {{ jobbb.created_at }}</p>
+        <p> <ion-icon name="pin"></ion-icon> {{ jobbb.location }}</p>
+         <p><ion-icon name="mail"></ion-icon>  {{ jobbb.company_url }}
+        </h4>
+      </ion-card-subtitle>
+      <ion-card-content>
+        <h1><b>Description</b></h1><br>
+        <h3>
+          <div [innerHTML]="jobbb.description"></div>
+        </h3>
+        <h1><b>How to apply</b></h1><br>
+        <h3>
+          <div [innerHTML]="jobbb.how_to_apply"></div>
+        </h3>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
